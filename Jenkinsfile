@@ -9,10 +9,13 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                echo 'Cloning repository...'
-                git 'https://github.com/Azii1/voteapp-app.git'
+                git branch: 'main',
+                    url: 'https://github.com/Azii1/voteapp-app.git',
+                    credentialsId: 'github-credentials-id'
             }
         }
+    }
+}
 
         stage('Build Docker Image') {
             steps {
