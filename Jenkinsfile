@@ -27,11 +27,12 @@ pipeline {
         
         stage('Login to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'azii1', passwordVariable: 'Cloud1234')]) {
-                    sh 'echo "$Cloud1234" | docker login -u "$azii1" --password-stdin'
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'Azii1', passwordVariable: 'Cloud1234')]) {
+                    sh 'echo "Cloud1234" | docker login -u "Azii1" --password-stdin'
                 }
             }
-            
+        } 
+        
         stage('Push Docker Image') {
             steps {
                 echo 'Pushing Docker image...'
